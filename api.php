@@ -44,8 +44,8 @@ $lastname = RandomString();
 $skeys = array(
   1 => 'sk_live_U3W52KTXU51yZwEYUBJO65Qs00AUCpL1se', 
   2 => 'sk_live_AEMR4UFETLVjbAQxrXqzmXO800j3uuyz13',
-//3 => 'sk_live_e9ufyjH5HW1zuDHA2OPMdw0c00fKWJImyv',
-  3 => 'sk_live_1jFtuvGEjav5OFNQX0jWwvt200rLHmF8rP',
+  3 => 'sk_live_e9ufyjH5HW1zuDHA2OPMdw0c00fKWJImyv',
+  4 => 'sk_live_1jFtuvGEjav5OFNQX0jWwvt200rLHmF8rP',
     ); 
     $skey = array_rand($skeys);
     $sk = $skeys[$skey];
@@ -189,33 +189,33 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, 'amount=1000&currency=usd&customer='.$id.''
 echo $result = curl_exec($ch);
 
     if (!isset($attachment_to_her["error"]) && isset($attachment_to_her["id"]) && $attachment_to_her["card"]["checks"]["cvc_check"] == "pass") {
-        echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-success">Approved ☤ [CVV MATCHED] [Charged: '.$charge.']</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+        echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-success">Approved â˜¤ [CVV MATCHED] [Charged: '.$charge.']</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
     } elseif (!isset($attachment_to_her["error"]) && isset($attachment_to_her["id"]) && $attachment_to_her["card"]["checks"]["cvc_check"] == "unchecked") {
-     echo '<tr><td><span class="badge badge-danger">DEAD</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Dead ☠ Dr.Ugs Unavailable Card [You can recheck it later]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+     echo '<tr><td><span class="badge badge-danger">DEAD</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Dead â˜  Dr.Ugs Unavailable Card [You can recheck it later]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
      
     } else {
     
-     echo '<tr><td><span class="badge badge-warning">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Approved ☤ Dr.Ugs [CVV MISSMATCHED] [Charged: '.$charge.']</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+     echo '<tr><td><span class="badge badge-warning">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Approved â˜¤ Dr.Ugs [CVV MISSMATCHED] [Charged: '.$charge.']</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
     
     }
     
 }
 elseif(strpos($result, '"cvc_check": "pass"')){
 
-     echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-success">Approved ☤ Dr.Ugs [CVV Matched] </i></font> <font class="badge badge-danger"> Additional Response: [' . $c["error"]["decline_code"] . '] [Not Charged]</i></font></span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+     echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-success">Approved â˜¤ Dr.Ugs [CVV Matched] </i></font> <font class="badge badge-danger"> Additional Response: [' . $c["error"]["decline_code"] . '] [Not Charged]</i></font></span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
 
 } 
 elseif(strpos($result, 'security code is incorrect')){
-    echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Approved ☤ Dr.Ugs [CCN LIVE] [Not Charged]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+    echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Approved â˜¤ Dr.Ugs [CCN LIVE] [Not Charged]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
  
 
 } 
 elseif (isset($c["error"])) {
     if ($c["error"]["decline_code"] == "Your card's security code is incorrect.") {
-           echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Approved ☤ Dr.Ugs Your cards security code is incorrect.[CCN LIVE] [Not Charged]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+           echo '<tr><td><span class="badge badge-success">LIVE</span></td><td>'.$lista.'</td><td><span class="badge badge-warning">Approved â˜¤ Dr.Ugs Your cards security code is incorrect.[CCN LIVE] [Not Charged]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
     }
         else{
-        echo '<tr><td><span class="badge badge-danger">DEAD</span></td><td>'.$lista.'</td><td><span class="badge badge-danger">Dead ☠ Dr.Ugs ' . $c["error"]["message"] . ' ' . $c["error"]["decline_code"] . ' [Not Charged]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
+        echo '<tr><td><span class="badge badge-danger">DEAD</span></td><td>'.$lista.'</td><td><span class="badge badge-danger">Dead â˜  Dr.Ugs ' . $c["error"]["message"] . ' ' . $c["error"]["decline_code"] . ' [Not Charged]</span></td><td>BANK:' . $bank . ' TYPE:' . $type . ' COUNTRY:' . $country .'</td></tr>';
 }
 }
 else {
